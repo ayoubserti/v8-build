@@ -1,0 +1,24 @@
+language: c++
+
+sudo: required
+dist: trusty
+
+compiler:
+  - gcc
+  - clang
+
+before_install:
+  - git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+  - export PATH=`pwd`/depot_tools:"$PATH"
+  - fetch --no-history v8
+  - cd v8
+  - gclient sync
+  - tools/dev/v8gen.py x64.release
+  - ninja -C out.gn/x64.Release
+
+install:
+  - if [ "$CXX" == "clang++" ]; then export CXXFLAGS="-stdlib=libstdc++"; fi
+  
+#script: make
+
+#after_success: LD_LIBRARY_PATH=. ./v8pp_test -v --run-tests test/console.js test/file.js
