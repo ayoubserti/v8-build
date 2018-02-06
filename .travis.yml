@@ -14,7 +14,12 @@ before_install:
   - cd v8
   - gclient sync
   - tools/dev/v8gen.py x64.release
-  - ninja -C out.gn/x64.release/
+  - ninja -C out.gn/x64.release/ v8_headers
+  - ninja -C out.gn/x64.release/ v8_libbase
+  - ninja -C out.gn/x64.release/ v8_libsampler
+  - ninja -C out.gn/x64.release/ icu
+  - ninja -C out.gn/x64.release/ v8_libplatform
+  - ninja -C out.gn/x64.release/ v8_base
 
 install:
   - if [ "$CXX" == "clang++" ]; then export CXXFLAGS="-stdlib=libstdc++"; fi
