@@ -19,14 +19,10 @@ before_install:
   - echo "v8_static_library = true" >> out.gn/x64.release/args.gn 
   - ninja -C out.gn/x64.release/ v8_headers
   - ninja -C out.gn/x64.release/ v8_libbase
-  - ninja -C out.gn/x64.release/ v8_libsampler
-  - ninja -C out.gn/x64.release/ icu
-  - ninja -C out.gn/x64.release/ v8_libplatform
-  - ninja -C out.gn/x64.release/ v8_base
-  - ninja -C out.gn/x64.release/ v8_snapshot
+
 
 install:
-  - ninja -C out.gn/x64.release/ v8_hello_world
+  - echo "OK"
   
 script: 
   - cd ..
