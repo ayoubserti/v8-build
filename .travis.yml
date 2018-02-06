@@ -14,16 +14,20 @@ before_install:
   - cd v8
   - gclient sync
   - tools/dev/v8gen.py x64.release
+  - echo "is_component_build = false" >> out.gn/x64.release/args.gn 
+  - echo "v8_static_library = true" >> out.gn/x64.release/args.gn 
   - ninja -C out.gn/x64.release/ v8_headers
   - ninja -C out.gn/x64.release/ v8_libbase
   - ninja -C out.gn/x64.release/ v8_libsampler
   - ninja -C out.gn/x64.release/ icu
   - ninja -C out.gn/x64.release/ v8_libplatform
   - ninja -C out.gn/x64.release/ v8_base
+  - ninja -C out.gn/x64.release/ v8_snapshot
 
 install:
-  - if [ "$CXX" == "clang++" ]; then export CXXFLAGS="-stdlib=libstdc++"; fi
+  - ninja -C out.gn/x64.release/ v8_hello_world
   
-#script: make
+script: 
+  - echo "success"
 
 #after_success: LD_LIBRARY_PATH=. ./v8pp_test -v --run-tests test/console.js test/file.js
