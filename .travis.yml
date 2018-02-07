@@ -43,5 +43,6 @@ deploy:
   bucket: v8-build
   skip_cleanup: true
   local_dir: build
+  region: us-east-2
 
 #after_success: LD_LIBRARY_PATH=. ./v8pp_test -v --run-tests test/console.js test/file.js
