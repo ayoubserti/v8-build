@@ -33,6 +33,7 @@ script:
   - mkdir build
   - mkdir build/libs
   - cp v8/out.gn/x64.release/obj/*.a build/libs
+  - cp v8/out.gn/x64.release/*.a build/libs
   - mkdir build/include  
   - cp -R v8/include build/include
 
