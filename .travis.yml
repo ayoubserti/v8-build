@@ -22,7 +22,7 @@ install:
   - ninja -C out.gn/x64.release/ icu
   - ninja -C out.gn/x64.release/ v8_libplatform
   - ninja -C out.gn/x64.release/ v8_base
-  - ninja -C out.gn/x64.release/ libv8_external_snapshot
+  - ninja -C out.gn/x64.release/ v8_external_snapshot
   - ninja -C out.gn/x64.release/ v8_hello_world
   
 script: 
@@ -35,7 +35,7 @@ script:
   - cp v8/out.gn/x64.release/icudtl.dat builds
   - cp v8/out.gn/x64.release/snapshot_blob.bin builds/
   - cp v8/out.gn/x64.release/natives_blob.bin builds/
-
+  - cp v8/out.gn/x64.release/v8_hello_world builds/
   - mkdir build/include  
   - cp -R v8/include build/include
 
