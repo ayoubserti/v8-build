@@ -21,6 +21,11 @@ install:
   - ninja -C out.gn/x64.release/ v8_libsampler
   - ninja -C out.gn/x64.release/ icu
   - ninja -C out.gn/x64.release/ v8_libplatform
+  - ninja -C out.gn/x64.release/ v8_init
+  - ninja -C out.gn/x64.release/ v8_initializers
+  - ninja -C out.gn/x64.release/ v8_base
+  - ninja -C out.gn/x64.release/ v8_external_snapshot
+  - ninja -C out.gn/x64.release/ v8_hello_world
   
 script: 
   - cd ..
