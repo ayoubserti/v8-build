@@ -13,11 +13,7 @@ install:
   - fetch --no-history v8
   - cd v8
   - gclient sync
-  - tools/dev/v8gen.py x64.release
-  - echo "is_component_build = false" >> out.gn/x64.release/args.gn 
-  - echo "v8_static_library = true" >> out.gn/x64.release/args.gn 
-  - ninja -C out.gn/x64.release/ v8_headers
-  - ninja -C out.gn/x64.release/ v8_libbase
+  - gn gen out.gn/x64.release/ --args='is_debug=false target_cpu="x64" is_component_build=false v8_static_library=true'
   - ninja -C out.gn/x64.release/ v8_libsampler
   - ninja -C out.gn/x64.release/ icu
   - ninja -C out.gn/x64.release/ v8_libplatform
