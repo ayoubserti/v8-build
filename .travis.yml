@@ -29,13 +29,13 @@ script:
   - cd ..
   - mkdir build
   - mkdir build/libs
-  - cp v8/out.gn/x64.release/obj/*.a build/libs
-  - cp v8/out.gn/x64.release/*.a build/libs
-  - cp v8/out.gn/x64.release/third_party/icu/*.a builds/libs
-  - cp v8/out.gn/x64.release/icudtl.dat builds
-  - cp v8/out.gn/x64.release/snapshot_blob.bin builds/
-  - cp v8/out.gn/x64.release/natives_blob.bin builds/
-  - cp v8/out.gn/x64.release/v8_hello_world builds/
+  - cp v8/out.gn/x64.release/obj/*.a build/libs || echo " skiped"
+  - cp v8/out.gn/x64.release/*.a build/libs || echo " skiped"
+  - cp v8/out.gn/x64.release/third_party/icu/*.a build/libs || echo " skiped"
+  - cp v8/out.gn/x64.release/icudtl.dat build || echo " skiped"
+  - cp v8/out.gn/x64.release/snapshot_blob.bin build/ || echo " skiped"
+  - cp v8/out.gn/x64.release/natives_blob.bin build/ || echo " skiped"
+  - cp v8/out.gn/x64.release/v8_hello_world build/ || echo " skiped"
   - mkdir build/include  
   - cp -R v8/include build/include
 
