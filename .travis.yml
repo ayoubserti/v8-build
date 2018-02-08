@@ -21,14 +21,12 @@ install:
   - ninja -C out.gn/x64.release/ v8_libsampler
   - ninja -C out.gn/x64.release/ icu
   - ninja -C out.gn/x64.release/ v8_libplatform
-  - ninja -C out.gn/x64.release/ v8_base
-  - ninja -C out.gn/x64.release/ v8_external_snapshot
-  - ninja -C out.gn/x64.release/ v8_hello_world
   
 script: 
   - cd ..
   - mkdir build
   - mkdir build/libs
+  - ls out.gn/x64.release/
   - cp v8/out.gn/x64.release/obj/*.a build/libs || echo " skiped"
   - cp v8/out.gn/x64.release/*.a build/libs || echo " skiped"
   - cp v8/out.gn/x64.release/third_party/icu/*.a build/libs || echo " skiped"
