@@ -36,14 +36,16 @@ script:
   - cp v8/out.gn/x64.release/v8_hello_world build/ || echo " skiped"
   - mkdir build/include  
   - cp -R v8/include build/include
+  - mkdir release
+  - tar -czvf release/v8-build-$TRAVIS_OS_NAME-x64-release.tar.gz build/
 
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: v8-build
+  bucket: $AWS_S3_BUCKET
   skip_cleanup: true
-  local_dir: build
-  region: us-east-2
+  local_dir: release
+  region: $AWS_S3_REGION
 
 #after_success: LD_LIBRARY_PATH=. ./v8pp_test -v --run-tests test/console.js test/file.js
