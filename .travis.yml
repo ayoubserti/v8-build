@@ -30,7 +30,7 @@ script:
   - mkdir build/libs
   - cp v8/out.gn/x64.release/obj/*.a build/libs || echo " skiped"
   - cp v8/out.gn/x64.release/*.a build/libs || echo " skiped"
-  - cp v8/out.gn/x64.release/third_party/icu/*.a build/libs || echo " skiped"
+  - cp v8/out.gn/x64.release/obj/third_party/icu/*.a build/libs || echo " skiped"
   - cp v8/out.gn/x64.release/icudtl.dat build || echo " skiped"
   - cp v8/out.gn/x64.release/snapshot_blob.bin build/ || echo " skiped"
   - cp v8/out.gn/x64.release/natives_blob.bin build/ || echo " skiped"
