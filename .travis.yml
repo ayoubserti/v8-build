@@ -35,8 +35,7 @@ script:
   - cp v8/out.gn/x64.release/snapshot_blob.bin build/ || echo " skiped"
   - cp v8/out.gn/x64.release/natives_blob.bin build/ || echo " skiped"
   - cp v8/out.gn/x64.release/v8_hello_world build/ || echo " skiped"
-  - mkdir build/include  
-  - cp -R v8/include build/include
+  - cp -R v8/include build/
   - mkdir release
   - tar -czvf release/v8-build-$TRAVIS_OS_NAME-x64-release.tar.gz build/
 
