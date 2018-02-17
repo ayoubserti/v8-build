@@ -2,11 +2,12 @@ language: c++
 cache: ccache
 
 os:
-  - osx
-  - linux
-
-compiler:
-  - clang
+  osx:
+    compiler:
+     - clang 
+  linux:
+    compiler:
+     - gcc
 
 install:
   - git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
